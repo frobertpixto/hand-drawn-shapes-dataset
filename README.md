@@ -32,8 +32,10 @@ Example of images from the Training set:
 General
 - Make a smaller dataset?
 - Describe how the data was generated. Tools and People.
-- Create nbviewer links for the notebooks
-- Improve this Readme
+- Create nbviewer links for the notebooks.
+- Describe the Obvious vs Interesting. Easy vs casesd where a human can hardly decide between 2 shapes. Also Rotation.
+- Describe the benefit of *other* shape.
+- Improve this Readme.
 
 Preparation
 - Improve ETL documentation
@@ -41,7 +43,7 @@ Preparation
 Classification
 - Rename variables like X_train
 - Explain main use of Augmentation and how this augmentation helps overfit
-- Explain Data all generated from the same tool -> some characteristics are constant
+- Explain Data is all generated from the same tool -> some characteristics are constant
 - Explain lr reducing strategy
 - Explain conclusion from Confusion matrix
 - Final Conclusion
