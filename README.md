@@ -42,6 +42,7 @@ Preparation
 
 Classification
 - Rename variables like X_train
+- Indicate CPU (150s) vs GPU (6s) per epoch, so 25 times faster...
 - Explain main use of Augmentation and how this augmentation helps overfit
 - Explain Data is all generated from the same tool -> some characteristics are constant
 - Explain lr reducing strategy
