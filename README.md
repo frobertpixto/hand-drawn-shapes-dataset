@@ -34,11 +34,9 @@ General
 - Describe how the data was generated. Tools and People.
 - Create nbviewer links for the notebooks.
 - Describe the Obvious vs Interesting. Easy vs casesd where a human can hardly decide between 2 shapes. Also Rotation.
+  - Describe examples for a progression of difficulties.
 - Describe the benefit of *other* shape.
 - Improve this Readme.
-
-Preparation
-- Improve ETL documentation
 
 Classification
 - Rename variables like X_train
