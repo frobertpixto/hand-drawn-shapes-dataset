@@ -43,17 +43,12 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 ### To do
 General
 - Make a smaller dataset subset?
-- Create nbviewer links for the notebooks.
+- Create nbviewer links for the notebooks?
 - Describe the Obvious vs Interesting. Easy vs cases where a human can hardly decide between 2 shapes. Also Rotation.
   - Describe examples for a progression of difficulties.
-- Improve this Readme.
 
 Classification
 - Rename variables like X_train
-- Explain main use of Augmentation and how this augmentation helps overfit
-- Explain Data is all generated from the same tool -> some characteristics are constant
-- Explain conclusion from Confusion matrix
-- Final Conclusion
 
 Later
 - Show Saliency map after classification.
