@@ -46,6 +46,7 @@ General
 - Create nbviewer links for the notebooks?
 - Describe the Obvious vs Interesting. Easy vs cases where a human can hardly decide between 2 shapes. Also Rotation.
   - Describe examples for a progression of difficulties.
+- Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
 
 Classification
 - Rename variables like X_train
