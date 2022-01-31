@@ -83,7 +83,7 @@ Ellipse            |  Rectangle | Triangle
 
 
 Why is it even more difficult?  
-When **drawing quickly**, the intent may only be vaguely expressed in the actual drawing:
+When **drawing quickly**, the intent may only be roughly expressed in the actual drawing:
 - An ellipse may not contains a lot of curves.
 - Sides may have different lengths. Still the intent must be considered.
 - The intent of a straight line may contain curves. 
