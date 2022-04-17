@@ -102,7 +102,6 @@ Classification
 - Rename variables like X_train
 
 Later
-- Show Saliency map after classification.
 - Show model to calculate Vertices
 
 ---
