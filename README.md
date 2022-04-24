@@ -7,7 +7,7 @@ Contains
 
 I have created this set of data for my app **[Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586)**.
 
-The Dataset is in the directory: classify/data
+The Dataset is in the directory: **data**
 
 ## Images 
 Images exist in 4 shapes:
@@ -16,11 +16,11 @@ Images exist in 4 shapes:
 - Triangle
 - Other
 
-It contains images (70px x 70 px x 1 gray channel) separated in:
+It contains images (70px x 70 px x 1 gray channel). In the ETL phase, I separated the data in:
 
 | Set | Total | Other | Ellipse |  Rectangle | Triangle |
 | :--------------|---------------:|---------------:|---------------:|---------------:|---------------: |
-| Training set |  **21393** images  |  5316  | 5025 |  5740  | 5312 |
+| Training set |  **21386** images  |  5316  | 5025 |  5737  | 5308 |
 | Validation set | **3983** images  |  1130  | 1069 |  860  | 924 |
 | Test set | **1923** images  |  841  | 360 |  359  | 363 |
   
