@@ -1,11 +1,29 @@
 # Shape Dataset
 
-Contains
-- a Dataset of Shapes for Machine Learning Classification.
+## Dataset
+- a Dataset of Shapes and Vertices for Machine Learning **Classification** and **Regression**.  
+
+## Analysis
+### Classification  
+
+Classification is done to determine the type of shape. Images exist in 4 shapes:
+- Ellipse
+- Rectangle
+- Triangle
+- Other
+
+Notebooks:
 - a Notebook to read the images and prepare data (ETL).
 - a Notebook to do Shape classification.
+### Regression  
+Regression is done to determine the exact size and angle of each shape.   
+For each shape, the vertices of the shape are expressed as x,y coordinates.  
+Vertices are the extremities that define the shape.
 
-I have created this set of data for my app **[Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586)**.
+Notebooks:
+  - a Notebook to read the images and Vertices and prepare data (ETL) for Ellipses.
+
+I have created this Dataset for my app **[Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586)**.
 
 The Dataset is in the directory: **data**
 
@@ -26,8 +44,8 @@ It contains images (70px x 70 px x 1 gray channel). In the ETL phase, I separate
   
 
 ### Examples
-Images from the Training set:
-![examples](images/train_images.png)
+Images from a Training set:
+![examples](readme_images/train_images.png)
 
 ## Data
 ### People
@@ -47,7 +65,7 @@ Let's show some **examples** of various difficulties.
 If we force the user to form **very distincts** shapes, the classification is pretty **easy**.  
 Ellipse            |  Rectangle | Triangle
 :-------------------------:|:-------------------------:|:-------------------------:
-![](images/Easy/Ell1.png)  |  ![](images/Easy/Rect1.png)  | ![](images/Easy/Tri1.png) 
+![](readme_images/Easy/Ell1.png)  |  ![](readme_images/Easy/Rect1.png)  | ![](readme_images/Easy/Tri1.png) 
   
 Why is it easy?
 - Shapes are pretty much all closed.
@@ -57,7 +75,7 @@ Why is it easy?
 If we consider that the user may be drawing quickly with a basic shape intent but imperfect drawing, it gets more interesting and harder.  
 Ellipse            |  Rectangle | Triangle
 :-------------------------:|:-------------------------:|:-------------------------:
-![](images/Medium/Ell1.png)  |  ![](images/Medium/Rect1.png)  | ![](images/Medium/Tri1.png) 
+![](readme_images/Medium/Ell1.png)  |  ![](readme_images/Medium/Rect1.png)  | ![](readme_images/Medium/Tri1.png) 
 
 Why is it more difficult?
 - Some open shapes.
@@ -68,7 +86,7 @@ Why is it more difficult?
 If we try to go to the limit of what a human can interpret, then it becomes much harder and **really interesting**. Here are 2 sets of hard images.   
 Ellipse            |  Rectangle | Triangle
 :-------------------------:|:-------------------------:|:-------------------------:
-![](images/Hard/Ell1.png)  |  ![](images/Hard/Rect1.png)  | ![](images/Hard/Tri1.png)  
+![](readme_images/Hard/Ell1.png)  |  ![](readme_images/Hard/Rect1.png)  | ![](readme_images/Hard/Tri1.png)  
 
 Why is it even more difficult?
 - The Ellipses have curves, but can almost be shaped as a Triangle.
@@ -79,7 +97,7 @@ or
 
 Ellipse            |  Rectangle | Triangle
 :-------------------------:|:-------------------------:|:-------------------------:
-![](images/Hard/Ell2.png)  |  ![](images/Hard/Rect2.png)  | ![](images/Hard/Tri2.png)  
+![](readme_images/Hard/Ell2.png)  |  ![](readme_images/Hard/Rect2.png)  | ![](readme_images/Hard/Tri2.png)  
 
 
 Why is it even more difficult?  
