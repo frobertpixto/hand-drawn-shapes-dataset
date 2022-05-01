@@ -58,7 +58,7 @@ I then used these images to train a model that is used in [Mix on Pix](https://a
 The first ML model had no **Other** shape. I was initially happy with the excellent accuracy when the drawing corresponded to the intent. But when testing internally with [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586), errors while drawing would lead to Ellipse, Rectangle and Triangle recognition. Not a fantastic user experience.    
 Moreover, when attacking the more difficult problem of determining the vertices of a shape, the distinction of **Other** shapes became important.
 
-### Difficulty
+### Classification - Difficulty
 The difficulty of the classification really depends on the flexibility that we want to implement.  
 Let's show some **examples** of various difficulties.
 #### Easy
@@ -106,8 +106,14 @@ When **drawing quickly**, the intent may only be roughly expressed in the actual
 - Sides may have different lengths. Still the intent must be considered.
 - The intent of a straight line may contain curves. 
 
+### Regression - Vertices
+The vertices are the oranges points superimposed on the ellipses in the examples below.   
+Regression can be used to determine the exact **intended size and angle** of the drawn shape.
+
+![examples](readme_images/vertices_ell.png)
+
 ## Notes
-- When training for [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) using a GPU over 300 epochs, I get a validation accuracy around 0.9980
+- When doing classification training for [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) using a GPU over 300 epochs, I get a validation accuracy around 0.9980
 - Once the model is trained, I generated a TensorFlow Lite model that I then use in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586).
 
 
@@ -119,8 +125,11 @@ General
 Classification
 - Rename variables like X_train
 
-Later
-- Show model to calculate Vertices
+Vertices
+- Show model to calculate Vertices for Ellipses
+
+Pipeline
+- Explain
 
 ---
 by Francois Robert 
