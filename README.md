@@ -106,18 +106,20 @@ When **drawing quickly**, the intent may only be roughly expressed in the actual
 - Sides may have different lengths. Still the intent must be considered.
 - The intent of a straight line may contain curves. 
 
-### Regression - Vertices
+## Notes on classification
+- When doing classification training for [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) using a GPU over 300 epochs, I get a validation accuracy around 0.9980
+- Once the model is trained, I generated a TensorFlow Lite model that I then use in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586).
+---
+
+# Regression - Vertices
 The vertices are the oranges points superimposed on the ellipses in the examples below.   
 Regression can be used to determine the exact **intended size and angle** of the drawn shape.
 
 ![examples](readme_images/vertices_ell.png)
 
-## Notes
-- When doing classification training for [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) using a GPU over 300 epochs, I get a validation accuracy around 0.9980
-- Once the model is trained, I generated a TensorFlow Lite model that I then use in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586).
 
-
-## To do
+---
+# To do
 General
 - Make a smaller dataset subset?
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
