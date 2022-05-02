@@ -116,7 +116,13 @@ The vertices are the oranges points superimposed on the ellipses in the examples
 Regression can be used to determine the exact **intended size and angle** of the drawn shape.
 
 ![examples](readme_images/vertices_ell.png)
+## Find the vertices
+- The labeled vertices are the oranges points superimposed on the ellipses in the examples below. 
+- The predicted vertices are the green points superimposed on the ellipses in the examples below.
 
+![examples](readme_images/predictions_ell.png)
+
+Note: The accuracy of the predictions can be improved by training with more epochs.
 
 ---
 # To do
