@@ -3,6 +3,11 @@ import imageio
 import os
 import ntpath
 from six.moves import cPickle as pickle
+# from shapely.geometry import Polygon
+
+from scipy import ndimage
+from skimage.transform import resize
+# from tensorflow.keras.utils import Sequence
 
 ### Functions for getting array of directory paths and array of file paths
 def get_dir_paths(root):
@@ -11,7 +16,7 @@ def get_dir_paths(root):
 def get_file_paths(root):
     return [os.path.join(root, n) for n in sorted(os.listdir(root)) if os.path.isfile(os.path.join(root, n))]
 
-def path_leaf(path):  
+def path_leaf(path):
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
 

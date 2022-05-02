@@ -123,6 +123,7 @@ Regression can be used to determine the exact **intended size and angle** of the
 General
 - Make a smaller dataset subset?
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
+- Add requirements.txt
 
 Classification
 - Rename variables like X_train
