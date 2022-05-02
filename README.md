@@ -121,15 +121,17 @@ Regression can be used to determine the exact **intended size and angle** of the
 ---
 # To do
 General
-- Make a smaller dataset subset?
-- Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
+- Explain directory structure in Readme
 - Add requirements.txt
-
-Classification
-- Rename variables like X_train
+- Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
+- Make a smaller dataset subset?
 
 Vertices
-- Show model to calculate Vertices for Ellipses
+- Finalize Ellipses
+- Show model to calculate Vertices for Rectangles and Triangles
+- Indicate the difficulties
+  - Augmentation in general
+    - First point in particular
 
 Pipeline
 - Explain
