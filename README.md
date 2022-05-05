@@ -19,6 +19,7 @@ Dataset of Hand Drawn Images of shapes.
 
 ## Processing
 ### Classification
+Hand Drawn Images of shapes are classified to determine the type of each shape.   
 More details [here](processing/classify/README.md).
 ### Regression  
 Regression is done to determine the exact size and angle of each shape.   
