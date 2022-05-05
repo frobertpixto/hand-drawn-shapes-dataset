@@ -8,7 +8,7 @@ Dataset of Hand Drawn Images of shapes.
 - **data**: Contains all the Dataset, with Images and Vertices .
   - 1 directory per user
     - For each sample, there is:
-      - An image like: images/ellipse/*ellipse.aly.0001*.png
+      - A file with an image like: images/ellipse/*ellipse.aly.0001*.png
       - A file with the vertices coordinates, like: vertices/ellipse/*ellipse.aly.0001*.csv
 - **processing**: Contains notebooks for ETL and modelisation.
   - **classify**: Classification
