@@ -82,6 +82,7 @@ General
 - Add requirements.txt
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
 - Make a smaller dataset subset?
+- Write about Hyperparameters and tweaks (like reference for first point for vertices).
 
 Vertices
 - Finalize Ellipses
