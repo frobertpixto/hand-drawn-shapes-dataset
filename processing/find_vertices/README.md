@@ -7,8 +7,8 @@ The vertices are the oranges points superimposed on the ellipses in the examples
 ![examples](readme_images/vertices_ell.png)
 
 
+Vertices are the extremities that define the shape.  
 For each shape, the vertices of the shape are expressed as x,y coordinates.  
-Vertices are the extremities that define the shape.
 
 
 ## Finding the vertices
@@ -49,10 +49,10 @@ Then we continue clockwise for all vertices.
 
 ![first_point_anchor](readme_images/first_point_anchor.PNG)
 
-For the Ellipses, I tried various locations for the **anchor**. The location **(0.0, 0.65)** seemed to give the best result.
+I tried various locations for the **anchor**. For the Ellipses, the location **(0.0, 0.65)** seemed to give the best result.
   
 ### The problem with that solution
-When a vertex is very close to the line betwwen the anchor and the center, the training can get confused.  
+When a vertex is very close to the line between the anchor and the center, the training can get confused.  
 
 I am illustrating below what I mean.
 
