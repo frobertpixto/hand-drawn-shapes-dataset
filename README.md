@@ -37,7 +37,7 @@ The Dataset contains images (70px x 70 px x 1 gray channel) distributed as:
 Hand Drawn Images of shapes are classified to determine the type of each shape.   
 More details [here](processing/classify/README.md).
 ### Regression  
-Regression can be used to determine the exact **intended size and angle** of each drawn shape.  
+Regression is used to determine the exact **intended size and angle** of each drawn shape.  
 The vertices are the oranges points superimposed on the ellipses in the examples below.   
 
 ![examples](readme_images/vertices_ell.png)
@@ -53,9 +53,9 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 - I have created tools within [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to generate 70px x 70px png files for each shape drawn.  
 - I also created tools in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to position the Vertices.
 
-I then used these images to train a model that is used in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) Auto-Shapes feature.
+I then used these images to train models that are used in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) Auto-Shapes feature.
 ### Shape of type Other
-The first ML model had no **Other** shape. I was initially happy with the excellent accuracy when the drawing corresponded to the intent. But when testing internally with [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586), errors while drawing would lead to Ellipse, Rectangle and Triangle recognition. Not a fantastic user experience.    
+The first ML model had no **Other** shape. I was initially happy with the excellent accuracy when the drawing corresponded to the intent. But when testing internally with [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586), bad  drawings would always be recognized as one of Ellipse, Rectangle or Triangle. It is not a great user experience.    
 Moreover, when attacking the more difficult problem of determining the vertices of a shape, the distinction of **Other** shapes became important.
 
 
@@ -66,13 +66,12 @@ General
 - Specify Licence
 - Add requirements.txt
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
-- Make a smaller dataset subset?
 - Write about Hyperparameters and tweaks (like reference for first point for vertices).
 
 Vertices
 - Finalize Ellipses
 - Show model to calculate Vertices for Rectangles and Triangles?
-- Indicate the difficulties
+- Indicate the difficulties, hyper-parameters adjustments and tweaks.
   - Augmentation in general
     - First point in particular
 - Show video of classification and finding vertices in actions.    

@@ -44,7 +44,7 @@ Ellipse            |  Rectangle | Triangle
 Why is it more difficult?
 - Some open shapes.
 - Rectangles and Triangles may contain curves.
-- Extra drawing (like in the ellipse). Too much extra drawing will make the shape fall in the **Other** category.
+- Some extra drawing is tolerated(like in the ellipse). Too much extra drawing will make the shape fall in the **Other** category.
 
 ### Hard
 If we try to go to the limit of what a human can interpret, then it becomes much harder and **really interesting**. Here are 2 sets of hard images.   
@@ -67,8 +67,7 @@ Ellipse            |  Rectangle | Triangle
 Why is it even more difficult?  
 When **drawing quickly**, the intent may only be roughly expressed in the actual drawing:
 - An ellipse may not contains a lot of curves.
-- Sides may have different lengths. Still the intent must be considered.
-- The intent of a straight line may contain curves. 
+- Sides may have different lengths. We don't expect the user to be precise in it's drawing.
 
 ## Notes on classification
 - When doing classification training for [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) using a GPU over 300 epochs, I get a validation accuracy around 0.9980

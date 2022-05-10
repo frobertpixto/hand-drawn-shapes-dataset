@@ -7,7 +7,7 @@ The vertices are the oranges points superimposed on the ellipses in the examples
 ![examples](readme_images/vertices_ell.png)
 
 
-Vertices are the extremities that define the shape.  
+Vertices are the extremities that define the actual size and angle of a shape.  
 For each shape, the vertices of the shape are expressed as x,y coordinates.  
 
 
@@ -37,14 +37,14 @@ Images are (70px x 70 px x 1 gray channel). In the ETL phase, I separated the da
 
 ---
 ## First vertex problematic
-One of the diffuculties with vertices is to determine **what will be considered the first point (or vertex)**.
+One of the difficulties with vertices is to determine **what will be considered the first point (or vertex)**.
 
 ### Solution
 The solution was to set an anchor point.  
 From the way the images were generated, I knew that the shape would be centered.  
-The anchor is an arbitrary location from which we can draw a line to the center of the image.
+The anchor is an arbitrary location from which we can draw a line (called an anchor line) to the center of the image.
 
-From that line, we navigation clockwise until we reach a first point. This point will be considered the first vertex.  
+From that anchor line, we navigation clockwise until we reach a first point. This point will be considered the first vertex.  
 Then we continue clockwise for all vertices.  
 
 ![first_point_anchor](readme_images/first_point_anchor.PNG)
@@ -54,16 +54,16 @@ I tried various locations for the **anchor**. For the Ellipses, the location **(
 ### The problem with that solution
 When a vertex is very close to the line between the anchor and the center, the training can get confused.  
 
-I am illustrating below what I mean.
+Let's illustrate that with with 2 similar ellipses, a Turquoise and a Yellow. 
 
 
 ![first_point_issue](readme_images/first_point_issue.PNG)
 
 In a clockwise navigation:
-- if a point is right after the anchor line, it will be set like Point 1 in Turquoise
-- if a point is right before the anchor line, it will be set like Point 4 in Yellow as the Point 1 will have been found about 90 degres of the anchor line.
+- If a point is right after the anchor line, it will be set like Point 1 in Turquoise
+- If a point is right before the anchor line, it will be set like Point 4 in Yellow as the Point 1 will have been found about 90 degres of the anchor line.
 
-The net result is that over a lot of this kind of samples, the prediction will end up being an average betwwen the Point 1 in Turquoise and the Point 1 in Yellow, resulting in a Point P1 in Magenta, which is bad.
+The net result is that over a lot of this kind of samples, the model will end up averaging between the Point 1 in Turquoise and the Point 1 in Yellow, resulting in a Point P1 in Magenta, which is bad.
 
 ### TODO:
 - Indicates possibles solutions
