@@ -62,7 +62,6 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 ---
 # To do
 General
-- Create a Intro/Summary on top with visual explainations
 - Specify Licence
 - Add requirements.txt
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
