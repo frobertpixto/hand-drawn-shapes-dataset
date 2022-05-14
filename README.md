@@ -1,11 +1,11 @@
-# Shape Dataset
+# Hand-drawn Shape (HDS) Dataset
 
 ## Summary
-Dataset of Hand Drawn Images of shapes. 
+Dataset of Hand-drawn Images of shapes with vertices. 
 ![examples](readme_images/train_images.png)
 
 ## Directory Structure
-- **data**: Contains all the Dataset, with Images and Vertices .
+- **data**: Contains all the HDS Dataset, with Images and Vertices .
   - 1 directory per user
     - For each sample, there is:
       - A file with an image like: images/ellipse/*ellipse.aly.0001*.png
@@ -15,7 +15,7 @@ Dataset of Hand Drawn Images of shapes.
   - **find_vertices**: Regression
 
 ## Dataset
-- a Dataset of Shapes and Vertices for Machine Learning **Classification** and **Regression**.  
+- a Dataset of hand-drawn Shapes and Vertices for Machine Learning **Classification** and **Regression**.  
 
 I have created this Dataset for my app **[Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586)**.
 
