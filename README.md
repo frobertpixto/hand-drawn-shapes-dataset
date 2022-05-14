@@ -77,7 +77,12 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 - Explain pipeline
 - Add requirements.txt for Notebooks
 - Show model to calculate Vertices for Rectangles and Triangles
+---
 
+# Communication
+
+- If you want to contribute, submit a pull request.
+- If you found a bug, have suggestions or need help, please, open an issue.
 ---
 by Francois Robert 
 
