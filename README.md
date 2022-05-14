@@ -63,14 +63,12 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 ---
 # To do
 ## General
-- Write about Hyperparameters and tweaks (like reference for first point for vertices).
+- Write about tuning for Hyperparameters and tweaks (like reference for first point for vertices).
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
 
 ## Vertices
-- Finalize Ellipses
 - Indicate the difficulties, hyper-parameters adjustments and tweaks.
   - Augmentation in general
-    - First point in particular
 - Show video of classification and finding vertices in actions.    
 
 ## Later if requested
@@ -87,7 +85,7 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 ---
 
 # Licenses
-- The data: Hand-drawn Shapes (HDS) Dataset © 2022 by Francois Robert is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- The data: Hand-drawn Shapes (HDS) Dataset © 2022 by Francois Robert is licensed under CC BY 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 - The code: The code in the notebooks is licensed under the MIT license. See [here](processing/LICENSE.txt).
 ---
 by Francois Robert 
