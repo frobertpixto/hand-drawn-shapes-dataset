@@ -11,8 +11,8 @@ Dataset of Hand-drawn Images of shapes with vertices.
       - A file with an image like: images/ellipse/*ellipse.aly.0001*.png
       - A file with the vertices coordinates, like: vertices/ellipse/*ellipse.aly.0001*.csv
 - **processing**: Contains notebooks for ETL and modelisation.
-  - **classify**: Classification
-  - **find_vertices**: Regression
+  - **classify**: Classification of shapes.
+  - **find_vertices**: Regression to find the vertices.
 
 ## Dataset
 - a Dataset of hand-drawn Shapes and Vertices for Machine Learning **Classification** and **Regression**.  
@@ -32,6 +32,7 @@ The Dataset contains images (70px x 70 px x 1 gray channel) distributed as:
 | :---------------:|---------------:|---------------:|---------------:|---------------: |
 | **27292** images  |  7287  | 6454 |  6956  | 6595 |
 
+The shapes have been size-normalized and centered in a fixed-size image.
 ## Processing
 ### Classification
 Hand Drawn Images of shapes are classified to determine the type of each shape.   
@@ -62,7 +63,6 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 ---
 # To do
 ## General
-- Specify Licence for Data and for Notebooks
 - Write about Hyperparameters and tweaks (like reference for first point for vertices).
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
 
@@ -83,6 +83,12 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 
 - If you want to contribute, submit a pull request.
 - If you found a bug, have suggestions or need help, please, open an issue.
+
+---
+
+# Licenses
+- The data: Hand-drawn Shapes (HDS) Dataset © 2022 by Francois Robert is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- The code: The code in the notebooks is licensed under the MIT license. See [here](processing/LICENSE.txt).
 ---
 by Francois Robert 
 
