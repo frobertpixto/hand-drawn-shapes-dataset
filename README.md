@@ -61,22 +61,22 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 
 ---
 # To do
-General
-- Specify Licence
-- Add requirements.txt
-- Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
+## General
+- Specify Licence for Data and for Notebooks
 - Write about Hyperparameters and tweaks (like reference for first point for vertices).
+- Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
 
-Vertices
+## Vertices
 - Finalize Ellipses
-- Show model to calculate Vertices for Rectangles and Triangles?
 - Indicate the difficulties, hyper-parameters adjustments and tweaks.
   - Augmentation in general
     - First point in particular
 - Show video of classification and finding vertices in actions.    
 
-Pipeline
-- Explain
+## Later if requested
+- Explain pipeline
+- Add requirements.txt for Notebooks
+- Show model to calculate Vertices for Rectangles and Triangles?
 
 ---
 by Francois Robert 
