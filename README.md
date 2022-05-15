@@ -1,4 +1,4 @@
-# Hand-drawn Shape (HDS) Dataset
+# Hand-drawn Shapes (HDS) Dataset
 
 ## Summary
 Dataset of Hand-drawn Images of shapes with vertices. 
