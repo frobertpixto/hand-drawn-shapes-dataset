@@ -63,7 +63,7 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 ---
 # To do
 ## General
-- Write about tuning for Hyperparameters and tweaks (like reference for first point for vertices).
+- Explain more about tuning for Hyperparameters and tweaks (like reference for first point for vertices).
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
 
 ## Vertices

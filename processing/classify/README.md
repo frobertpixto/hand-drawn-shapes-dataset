@@ -80,6 +80,17 @@ and still be **as good** as the original images. It is easy to imagine that over
 
 For Classification, we can use Keras ImageDataGenerator to do this Augmentation.
 
+### Learning Rate
+I typically run 200 to 300 epochs and only lower the learning rate very slowly due to the big Data Agmentation.   
+The correct setting for patience and factor will be important to reach the best accuracy.  
+Note the factor of 0.9 and patience of 15. So if there is no improvements in validation accuracy for 15 epochs, I lower the Learning Rate to 90%.
+```
+learning_rate_reduction = ReduceLROnPlateau(monitor='val_accuracy',
+                                            patience=15,
+                                            verbose=1,
+                                            factor=0.9,
+                                            min_lr=0.000000001)
+```
 ---
 ## Notes on classification
 - When doing classification training for [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) using a GPU over 300 epochs, I get a validation accuracy around 0.9980

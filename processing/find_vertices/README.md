@@ -44,8 +44,21 @@ As images can be:
 
 and still be **as good** as the original images. It is easy to imagine that over, let's say 500 epochs, each image used for training will appear significatively different.
 
-Note: For the Vertices, we **cannot** use Keras ImageDataGenerator to do this Augmentation as we have to changes our labels (the vertices coordinates) as we augment each image. I had to write my own generator.
+Note: For the Vertices, we **cannot** use Keras ImageDataGenerator to do this Augmentation as we have to **changes our labels** (the vertices coordinates) as we augment each image. I wrote my own generator.
 
+### Learning Rate
+I typically run around 1000 epochs and only lower the learning rate very slowly due to the big Data Agmentation.   
+The correct setting for patience and factor will be important to reach the best accuracy.  
+Note the factor of 0.9 and patience of 25. So if there is no improvements in validation loss for 25 epochs, I lower the Learning Rate to 90%.
+```
+learning_rate_reduction = ReduceLROnPlateau(monitor='val_loss',
+                                            patience=25,
+                                            verbose=1,
+                                            factor=0.90, 
+                                            mode='min',
+                                            min_delta=0.0000001,
+                                            min_lr=0.000000001)
+```
 ---
 ## First vertex problematic
 One of the difficulties with vertices is to determine **what will be considered the first point (or vertex)**.
