@@ -69,6 +69,18 @@ When **drawing quickly**, the intent may only be roughly expressed in the actual
 - An ellipse may not contains a lot of curves.
 - Sides may have different lengths. We don't expect the user to be precise in it's drawing.
 
+---
+## Hyper-parameters
+The first considerations that impacts Hyper-parameters is that we can do a lot of very good Data Augmentation on our Training data.
+As images can be:
+- Flipped horizontally and vertically
+- Rotated 360 degres
+
+and still be **as good** as the original images. It is easy to imagine that over, let's say 500 epochs, each image used for training will appear significatively different.
+
+For Classification, we can use Keras ImageDataGenerator to do this Augmentation.
+
+---
 ## Notes on classification
 - When doing classification training for [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) using a GPU over 300 epochs, I get a validation accuracy around 0.9980
 - Once the model was trained, I generated a TensorFlow Lite model that I then use in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586).

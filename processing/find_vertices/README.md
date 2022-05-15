@@ -36,6 +36,17 @@ Images are (70px x 70 px x 1 gray channel). In the ETL phase, I separated the da
 | Test set | 180  |
 
 ---
+## Hyper-parameters
+The first considerations that impacts Hyper-parameters is that we can do a lot of very good Data Augmentation on our Training data.
+As images can be:
+- Flipped horizontally and vertically
+- Rotated 360 degres
+
+and still be **as good** as the original images. It is easy to imagine that over, let's say 500 epochs, each image used for training will appear significatively different.
+
+Note: For the Vertices, we **cannot** use Keras ImageDataGenerator to do this Augmentation as we have to changes our labels (the vertices coordinates) as we augment each image. I had to write my own generator.
+
+---
 ## First vertex problematic
 One of the difficulties with vertices is to determine **what will be considered the first point (or vertex)**.
 
