@@ -4,6 +4,18 @@
 Dataset of Hand-drawn Images of shapes with vertices. 
 ![examples](readme_images/train_images.png)
 
+<details><summary>Table of Contents</summary><p>
+
+* [Directory Structure](#directory-structure)
+* [HDS Dataset](#hds-dataset)
+* [The Images](#the-images)
+* [Processing](#processing)
+* [The Data](#the-data)
+* [To do](#to-do)
+* [Communication](#communication)
+* [Licenses](#licenses)
+</p></details><p></p>
+
 ## Directory Structure
 - **data**: Contains all the HDS Dataset, with Images and Vertices .
   - 1 directory per user
@@ -14,7 +26,7 @@ Dataset of Hand-drawn Images of shapes with vertices.
   - **classify**: Classification of shapes.
   - **find_vertices**: Regression to find the vertices.
 
-## Dataset
+## HDS Dataset
 - a Dataset of hand-drawn Shapes and Vertices for Machine Learning **Classification** and **Regression**.  
 
 I have created this Dataset for my app **[Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586)**.
@@ -61,30 +73,28 @@ Moreover, when attacking the more difficult problem of determining the vertices 
 
 
 ---
-# To do
-## General
+## To do
+### General
 - Explain more about tuning for Hyperparameters and tweaks (like reference for first point for vertices).
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
 
-## Vertices
-- Indicate the difficulties, hyper-parameters adjustments and tweaks.
-  - Augmentation in general
+### Vertices
 - Show video of classification and finding vertices in actions.    
 
-## Later if requested
+### Later if requested
 - Explain pipeline
 - Add requirements.txt for Notebooks
 - Show model to calculate Vertices for Rectangles and Triangles
 ---
 
-# Communication
+## Communication
 
 - If you want to contribute, submit a pull request.
 - If you found a bug, have suggestions or need help, please, open an issue.
 
 ---
 
-# Licenses
+## Licenses
 - The data: Hand-drawn Shapes (HDS) Dataset © 2022 by Francois Robert is licensed under CC BY 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 - The code: The code in the notebooks is licensed under the MIT license. See [here](processing/LICENSE.txt).
 ---
