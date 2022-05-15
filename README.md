@@ -38,7 +38,7 @@ Images exist in 4 shapes:
 - Triangle
 - Other
 
-The Dataset contains images (70px x 70 px x 1 gray channel) distributed as:
+The Dataset contains images (70px x 70px x 1 gray channel) distributed as:
 
 | Total | Other | Ellipse |  Rectangle | Triangle |
 | :---------------:|---------------:|---------------:|---------------:|---------------: |
