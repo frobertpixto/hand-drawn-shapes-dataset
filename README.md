@@ -66,6 +66,18 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 - I have created tools within [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to generate 70px x 70px png files for each shape drawn.  
 - I also created tools in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to position the Vertices.
 
+### Direct augmentation of the data. 
+  - 3 variations were done per image
+    1. Normal
+    2. 1.5 to 3.0 wider
+    3. 1.5 to 3.0 narrower
+  - One advantage is that I realized that:
+    - People tend to make equilibrated shapes (Circle, Square, Equilateral triangle). 
+    - Most elongated images were interesting and sometime presented a different challenge than the original. 
+  - This processing was not done for type Other.
+  - I validated them all manually (or we could say visually) and removed the generated images that were not interesting.
+  - This is different than the Augmentation done during Training (like horizontal and vertical flips, rotations).
+
 I then used these images to train models that are used in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) Auto-Shapes feature.
 ### Shape of type Other
 The first ML model had no **Other** shape. I was initially happy with the excellent accuracy when the drawing corresponded to the intent. But when testing internally with [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586), bad  drawings would always be recognized as one of Ellipse, Rectangle or Triangle. It is not a great user experience.    
