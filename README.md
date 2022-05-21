@@ -67,7 +67,7 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 - I also created tools in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to position the Vertices.
 
 ### Direct augmentation of the data. 
-  - 3 variations were done per image
+  - 3 variations were generated per image
     1. Normal
     2. 1.5 to 3.0 wider
     3. 1.5 to 3.0 narrower
@@ -76,7 +76,9 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
     - Most elongated images were interesting and sometime presented a different challenge than the original. 
   - This processing was not done for type Other.
   - I validated them all manually (or we could say visually) and removed the generated images that were not interesting.
-  - This is different than the Augmentation done during Training (like horizontal and vertical flips, rotations).
+  - This is different than the Augmentation done during Training (like horizontal and vertical flips, rotations) because:
+    - It applies to all images including Validation set and Test set.
+    - Being generated before being drawn provided images of a better quality.
 
 I then used these images to train models that are used in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) Auto-Shapes feature.
 ### Shape of type Other
