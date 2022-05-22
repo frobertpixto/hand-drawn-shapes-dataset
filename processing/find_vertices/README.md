@@ -68,7 +68,7 @@ The solution was to set an anchor point.
 From the way the images were generated, I knew that the shape would be centered.  
 The anchor is an arbitrary location from which we can draw a line (called an anchor line) to the center of the image.
 
-From that anchor line, we navigation clockwise until we reach a first point. This point will be considered the first vertex.  
+From that anchor line, we navigate clockwise until we reach a first point. This point will be considered the first vertex.  
 Then we continue clockwise for all vertices.  
 
 ![first_point_anchor](readme_images/first_point_anchor.PNG)

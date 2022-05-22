@@ -67,9 +67,26 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 - I also created tools in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to position the Vertices.
 
 ### Vertices
-Coordinates of vertices (like the 4 corners of a rectangle) are interesting as they are much more precise than just a surrounding box used in object detection.
-Vertices allow to determine the angle of the shape and it exact size.  
-Note that labelling is more complicated as explained [here](processing/find_vertices/README.md).
+Quick Math refresher:
+- Vertices in shapes are the points where two or more line segments or edges meet (like a corner for a rectangle). 
+- Vertices of an ellipse are the 4 corner points at which the ellipse takes the maximum turn.
+- The singular of vertices is vertex.
+
+Coordinates of vertices are interesting as they are much more precise than just a surrounding box used in object detection.
+Vertices allow to determine the **angle** of the shape and it **exact size**.  
+
+#### Labelling
+Labelling was done by me using a tool I created in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586).
+For each image, the tool also generated a csv file with 1 line per vertex.
+Each Vertex has:
+- a x coordinate betwwen 0 and 1
+- a y coordinate betwwen 0 and 1
+
+Where:
+- (0,0) is the top left corner of the image
+- (1,1) is the bottom right corner of the image
+
+Note that the vertices are in no particular order. I sort them clockwise in the ETL.
 #### Usefulness of vertices
 Aside from drawing shapes on images like in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586), another real-life example could be to determine the direction of a car (rectangle) or a ship (ellipse) in a direct overhead view. 
 
