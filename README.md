@@ -67,7 +67,7 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 - I also created tools in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to position the Vertices.
 
 ### Vertices
-Quick Math refresher:
+Quick Geometry refresher:
 - Vertices in shapes are the points where two or more line segments or edges meet (like a corner for a rectangle). 
 - Vertices of an ellipse are the 4 corner points at which the ellipse takes the maximum turn.
 - The singular of vertices is vertex.
@@ -111,7 +111,6 @@ The first ML models had no **Other** shape. I was initially happy with the excel
 ---
 ## To do
 ### General
-- Explain more about tuning for Hyperparameters and tweaks (like reference for first point for vertices).
 - Create a DataSheet for the Dataset as described in https://arxiv.org/pdf/1803.09010.pdf  
 
 ### Vertices
