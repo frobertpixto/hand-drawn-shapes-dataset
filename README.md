@@ -67,9 +67,11 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 - I also created tools in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to position the Vertices.
 
 ### Vertices
-Coordinates of vertices (like the 4 corners of a rectangle) are interesting as they are much more precise than just a surrending box used in object detection.
-Vertices allow to determine the angle of the shape and it exact size.
-But labelling is more complicated as explained [here](processing/find_vertices/README.md).
+Coordinates of vertices (like the 4 corners of a rectangle) are interesting as they are much more precise than just a surrounding box used in object detection.
+Vertices allow to determine the angle of the shape and it exact size.  
+Note that labelling is more complicated as explained [here](processing/find_vertices/README.md).
+#### Usefulness of vertices
+Aside from drawing shapes on images like in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586), another real-life example could be to determine the direction of a car (rectangle) or a ship (ellipse) in a direct overhead view. 
 
 ### Direct augmentation of the data. 
   - 3 variations were generated per image
