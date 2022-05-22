@@ -66,6 +66,11 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 - I have created tools within [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to generate 70px x 70px png files for each shape drawn.  
 - I also created tools in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) to position the Vertices.
 
+### Vertices
+Coordinates of vertices (like the 4 corners of a rectangle) are interesting as they are much more precise than just a surrending box used in object detection.
+Vertices allow to determine the angle of the shape and it exact size.
+But labelling is more complicated as explained [here](processing/find_vertices/README.md).
+
 ### Direct augmentation of the data. 
   - 3 variations were generated per image
     1. Normal
@@ -82,9 +87,7 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 
 I then used these images to train models that are used in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) Auto-Shapes feature.
 ### Shape of type Other
-The first ML model had no **Other** shape. I was initially happy with the excellent accuracy when the drawing corresponded to the intent. But when testing internally with [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586), bad  drawings would always be recognized as one of Ellipse, Rectangle or Triangle. It is not a great user experience.    
-Moreover, when attacking the more difficult problem of determining the vertices of a shape, the distinction of **Other** shapes became important.
-
+The first ML models had no **Other** shape. I was initially happy with the excellent accuracy when the drawing was actually a rectangle, triangle or ellipse. But when testing internally with [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586), drawings of shapes like stars, hearts or crosses would always be recognized as one of Ellipse, Rectangle or Triangle. It is not a great user experience.    
 
 ---
 ## To do
