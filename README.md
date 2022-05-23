@@ -69,7 +69,7 @@ People were aged from 7 to 87. I asked them to draw the way they wanted, slow or
 ### Vertices
 Quick Geometry refresher:
 - Vertices in shapes are the points where two or more line segments or edges meet (like a corner for a rectangle). 
-- Vertices of an ellipse are the 4 corner points at which the ellipse takes the maximum turn.
+- Vertices of an ellipse are the 4 corner points at which the ellipse takes the maximum turn. Technically, an ellipse will have 2 vertices and 2 covertices. We will call them all vertices here.
 - The singular of vertices is vertex.
 
 Coordinates of vertices are interesting as they are much more precise than just a surrounding box used in object detection.
