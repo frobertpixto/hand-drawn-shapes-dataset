@@ -66,7 +66,7 @@ Quick Geometry refresher:
 Coordinates of vertices are interesting as they are much **more precise** than just a surrounding box used in [Object detection](https://en.wikipedia.org/wiki/Object_detection).  
 Vertices allow us to determine the **angle** of the shape and it **exact size**.  
 
-### Labelling
+### Labelling of vertices
 Labelling was done by me using a tool I created in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586).
 For each image, the tool also generated a csv file with 1 line per vertex.
 Each Vertex has:
