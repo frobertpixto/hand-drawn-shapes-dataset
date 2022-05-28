@@ -18,7 +18,7 @@ For each shape, the vertices of the shape are expressed as x,y coordinates.
 ![examples](readme_images/predictions_ell.png)
 
 Note: The accuracy of the predictions can be improved by training with more epochs.
-- Once the model was trained, I generated a TensorFlow Lite model that I then use in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586).
+- Once the model was trained, I generated a TensorFlow Lite model that I then ran in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586) for the Auto-Shapes feature.
 
 ---
 
