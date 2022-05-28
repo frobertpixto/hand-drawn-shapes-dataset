@@ -1,7 +1,7 @@
 # Hand-drawn Shapes (HDS) Dataset
 
 ## Summary
-Dataset of Hand-drawn Images of shapes with vertices. 
+Dataset of Hand-drawn Images of shapes **with vertices**. 
 ![examples](readme_images/train_images.png)
 
 I have created the HDS Dataset for my app **[Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586)**.
