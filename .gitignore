@@ -157,3 +157,7 @@ DerivedData/
 /*.gcno
 
 .DS_Store
+
+## Output files
+pickles/
+saved_models/

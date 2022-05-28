@@ -1,37 +1,13 @@
 import numpy as np
 import imageio
 import os
-import ntpath
-from six.moves import cPickle as pickle
 from shapely.geometry import Polygon
 
 from scipy import ndimage
 from skimage.transform import resize
 from tensorflow.keras.utils import Sequence
 
-### Functions for getting array of directory paths and array of file paths
-def get_dir_paths(root):
-    return [os.path.join(root, n) for n in sorted(os.listdir(root)) if os.path.isdir(os.path.join(root, n))]
-
-def get_file_paths(root):
-    return [os.path.join(root, n) for n in sorted(os.listdir(root)) if os.path.isfile(os.path.join(root, n))]
-
-def path_leaf(path):
-    head, tail = ntpath.split(path)
-    return tail or ntpath.basename(head)
-
-## Function for saving an object to a pickle file
-def save_to_pickle(pickle_file, object, force=False):
-    if os.path.exists(pickle_file) and not force:
-        print('%s already present, skipping pickling' % pickle_file)
-    else:
-        try:
-            f = open(pickle_file, 'wb')
-            pickle.dump(object, f, pickle.HIGHEST_PROTOCOL)
-            f.close()
-        except Exception as e:
-            print('Unable to save object to', pickle_file, ':', e)
-            raise
+from hds_module.utils import get_file_paths, path_leaf
 
 # Normalize image by pixel depth by making it white on black instead of black on white
 def normalize_image(image_file, pixel_depth):
@@ -42,7 +18,7 @@ def normalize_image(image_file, pixel_depth):
 
     return 1.0 - (array.astype(float))/pixel_depth  # (1 - x) will make it white on black
 
-# Retrieve original image from normalized image
+# Restore original image from normalized image
 def unnormalize_image(image, pixel_depth):
     return (pixel_depth*image).astype(np.uint8)
 
@@ -56,7 +32,7 @@ def replace_last(source_string, replace_what, replace_with):
     head, _sep, tail = source_string.rpartition(replace_what)
     return head + replace_with + tail
 
-def find_lefmost_index_in_subrect(vertices, x_from, y_from, x_to_excluded,y_to_excluded, vertice_count):
+def find_lefmost_index_in_subrect(vertices, x_from, y_from, x_to_excluded, y_to_excluded, vertice_count):
     count = 0
     min_x = 1
     leftmost_index = 0
@@ -81,6 +57,11 @@ def find_lefmost_index_in_subrect(vertices, x_from, y_from, x_to_excluded,y_to_e
     return (count, leftmost_index)
 
 def find_nearest_index(vertices, x_from, y_from, vertice_count):
+    """
+    Find the index of the vertex that is the closest to specified 
+    coordinate (x_from, y_from).
+    """
+
     min_distance_squared  = 1000000
     nearest_index = 0
 
@@ -91,32 +72,27 @@ def find_nearest_index(vertices, x_from, y_from, vertice_count):
         dx = (vertice[0] * 1000) - x_from
         dy = (vertice[1] * 1000) - y_from
         square_dist = dx*dx + dy*dy
+        
         if square_dist < min_distance_squared and index < vertice_count:
             nearest_index = index
             min_distance_squared = square_dist
 
     return nearest_index
 
-def select_first_vertice_index(vertices, vertice_count):
-    count_bottom_left, leftmost_index_bottom_left = find_lefmost_index_in_subrect(vertices, 0, 0.5, 0.5, 1.0, vertice_count)
-    if count_bottom_left == 1:
-        return leftmost_index_bottom_left
 
-    count_top_left, leftmost_index_top_left = find_lefmost_index_in_subrect(vertices, 0, 0, 0.5, 0.5, vertice_count)
-    if count_top_left == 1:
-        return leftmost_index_top_left
-
-    count, leftmost_index = find_lefmost_index_in_subrect(vertices, 0, 0, 1.0, 1.0, vertice_count)
-    if count < 1:
-        raise ValueError("No Vertices found")
-    return leftmost_index
-
-def select_first_vertice_index2(vertices, vertice_count, x_pos, y_pos):
+def select_first_vertice_index(vertices, vertice_count, x_pos, y_pos):
+    """
+    The first vertex will be the vertex that is closest to the anchor point
+    specified as (x_pos, y_pos)
+    """
     nearest_index = find_nearest_index(vertices, x_pos, y_pos, vertice_count)
 
     return nearest_index
 
 def sort_vertices_clockwize(vertices, first_vertice_index, vertice_count):
+    """
+    Sort the vertices by navigating clockwise starting with the first vertex
+    """
     vertices_sorted = np.zeros(vertices.shape)
 
     first_vertice_angle = 0
@@ -142,7 +118,7 @@ def sort_vertices_clockwize(vertices, first_vertice_index, vertice_count):
                 else:
                     bigger_vertices.append((index, vertice_angle))
 
-    # ordered (clockwise) vertices that we need will be composed of:
+    # Ordered (clockwise) vertices that we need will be composed of:
     # 1. The first vertice
     # 2. The smaller vertice from the biggest angle to the smallest angle (0)
     # 2. The bigger  vertice from the biggest angle to the smallest angle (first_vertice_angle)
@@ -158,13 +134,15 @@ def sort_vertices_clockwize(vertices, first_vertice_index, vertice_count):
         vertices_sorted[i] = vertices_ordered[i]
     return vertices_sorted
 
-# Load data for a single user.
 def load_images_for_shape(root, pixel_depth, user_images,
                           user_images_labels, user_images_paths, 
                           min_nimages=1, 
                           vertice_count=4, 
                           x_pos=0.2, y_pos=1.0,
                           verbose=False):
+    """
+    Load images and vertices for a specific user and shape.
+    """
 
     if verbose:
         print("root for load_images_for_shape: ", root)
@@ -174,7 +152,7 @@ def load_images_for_shape(root, pixel_depth, user_images,
 
     for image_file in image_files:
         try:
-            if path_leaf(image_file).startswith('.'):  # skip file like .DSStore
+            if path_leaf(image_file).startswith('.'):  # skip files like .DSStore
                 continue
 
             # Make sure that the corresponding vertice file exists
@@ -188,7 +166,7 @@ def load_images_for_shape(root, pixel_depth, user_images,
             vertices = np.loadtxt(vertice_file, delimiter=",") #, max_rows=3)
 
             # Re-order the vertices
-            first_vertice_index = select_first_vertice_index2(vertices, vertice_count=vertice_count, x_pos=x_pos, y_pos=y_pos)
+            first_vertice_index = select_first_vertice_index(vertices, vertice_count=vertice_count, x_pos=x_pos, y_pos=y_pos)
             vertices_sorted     = sort_vertices_clockwize(vertices, first_vertice_index=first_vertice_index, vertice_count=vertice_count)
 
             vertices = vertices_sorted.ravel()
@@ -209,17 +187,13 @@ def load_images_for_shape(root, pixel_depth, user_images,
     if image_index < min_nimages:
         raise Exception('Fewer images than expected: %d < %d' % (image_index, min_nimages))
 
-    # if verbose:
-    #     print('Full dataset tensor: ', dataset.shape)
-    #     print('Mean: ', np.mean(dataset))
-    #     print('Standard deviation: ', np.std(dataset))
-
-def cart2pol(x, y):
+# Coordinates translations
+def cartesian_to_polar(x, y):
     rho = np.sqrt(x**2 + y**2)
     phi = np.arctan2(y, x)
     return(rho, phi)
 
-def pol2cart(rho, phi):
+def polar_to_cartesian(rho, phi):
     x = rho * np.cos(phi)
     y = rho * np.sin(phi)
     return(x, y)
@@ -245,11 +219,31 @@ def calculate_Dice(label, pred, nb_vertices=4):
     dice = 2 * I / (y_polygon.area + pred_polygon.area) 
     return dice 
 
-class PixtoDataGenerator(Sequence):
-    'Generates data for Keras'
+def calculate_Dice_for_set(Y, Y_pred, nb_vertices):
+
+    nb_samples = Y.shape[0]
+    dice_sum = 0.0
+    valid_shapes_count = 0
+    for i in range(nb_samples):
+        try:
+            dice = calculate_Dice(Y[i], Y_pred[i], nb_vertices=nb_vertices)
+            dice_sum += dice
+            valid_shapes_count += 1
+        except Exception as e:
+            print(f"Cannot compute Dice for shape: {i}.")    
+
+    return dice_sum / valid_shapes_count
+
+class HdsDataGenerator(Sequence):
+    """
+    Generates data for Keras while modifying the labels
+    as the images are flipped or rotated.
+    """
 
     def __init__(self, list_IDs, x_set, y_set, batch_size=32, dim=(70, 70), n_channels=1, n_vertices=4, x_pos=0.0, y_pos=0.65, shuffle=True):
-        'Initialization'
+        """
+        Initialization
+        """
         self.dim = dim
         self.im_size = dim[0]
         self.batch_size = batch_size
@@ -264,11 +258,15 @@ class PixtoDataGenerator(Sequence):
         self.on_epoch_end()
 
     def __len__(self):
-        'Denotes the number of batches per epoch'
+        """
+        Denotes the number of batches per epoch.
+        """
         return int(np.floor(len(self.list_IDs) / self.batch_size))
 
     def __getitem__(self, index):
-        'Generate one batch of data'
+        """
+        Generate one batch of data
+        """
         # Generate indexes of the batch
         indexes = self.indexes[index * self.batch_size:(index + 1) * self.batch_size]
 
@@ -281,32 +279,22 @@ class PixtoDataGenerator(Sequence):
         return X, y
 
     def on_epoch_end(self):
-        'Updates indexes after each epoch'
+        """
+        Updates indexes after each epoch
+        """
         self.indexes = np.arange(len(self.list_IDs))
         if self.shuffle == True:
             np.random.shuffle(self.indexes)
 
-        # Rotate 90 counter-clockwize. Ex: [[0.29 0.69 0.12 0.32 0.87 0.33]] -> [[0.69 0.71 0.32 0.88 0.67 0.87]]
-
-    def rotate_vertices90(self, label):  # Rotate 90 counter-clockwize
+    def rotate_vertices(self, label, angle, padding_is_used, padding):  
+        """
+        Rotate vertices counter-clockwize in degres
+        """
         nb_label = len(label)
         label_new = np.array(label, copy=True)
-
-        for m in range(nb_label):
-            if m % 2 == 0:
-                label_new[m] = label[m + 1]
-            else:
-                label_new[m] = 1 - label[m - 1]
-        return label_new
-
-    def rotate_vertices(self, label, angle, padding_is_used, padding):  # Rotate counter-clockwize in degre
-        nb_label = len(label)
-        label_new = np.array(label, copy=True)
-
 
         # rotate each point by angle
         vertices = label_new.reshape((-1, 2))
-#        nb_points = nb_label / 2
 
         for index, vertice in enumerate(vertices):
             x = vertice[0]
@@ -319,18 +307,17 @@ class PixtoDataGenerator(Sequence):
 
             new_angle = current_angle + angle
             new_rad_angle = new_angle * np.pi / 180
-            new_length = current_length #* (1 + delta_margin/70)
+            new_length = current_length
             if padding_is_used:
                 new_length  *= (1 - 2*padding/self.im_size)
 
-            new_dx, new_dy = pol2cart(new_length, new_rad_angle)
+            new_dx, new_dy = polar_to_cartesian(new_length, new_rad_angle)
 
             new_x = 0.5 + new_dx
             new_y = 0.5 - new_dy  # Note Y is de-reversed
             label_new[2*index + 0] = new_x
             label_new[2*index + 1] = new_y
 
-            fr1 = 0
         return label_new
 
     def shift_vertices(self, label, offset_h_px, offset_v_px):
@@ -349,15 +336,6 @@ class PixtoDataGenerator(Sequence):
             label_new[2*index + 1] = new_y
 
         return label_new
-
-    def show_image(self, image):
-        img = image.reshape(self.dim)
-        plt.imshow(img, cmap='gray')
-
-    def show_image_with_y(self, image, y):
-        img = image.reshape(self.dim)
-        plt.imshow(img, cmap='gray')
-        plt.scatter(self.im_size * y[0::2], self.im_size * y[1::2], c='orange')
 
     def get_margin_values(self, image_data):
         image_size = self.im_size
@@ -388,7 +366,6 @@ class PixtoDataGenerator(Sequence):
         return top_margin, right_margin, bottom_margin, left_margin
 
     def get_margin(self, image_data):
-
         top_margin, right_margin, bottom_margin, left_margin = self.get_margin_values(image_data)
 
         margin = [0]
@@ -404,7 +381,6 @@ class PixtoDataGenerator(Sequence):
         return cleaned_image
 
     def center_image(self, image):
-
         top_margin, right_margin, bottom_margin, left_margin = self.get_margin_values(image)
         target_h_margin = (left_margin + right_margin) // 2
         target_v_margin = (top_margin + bottom_margin) // 2
@@ -445,14 +421,14 @@ class PixtoDataGenerator(Sequence):
             is_modified = False
 
             # Perform modification on both X (the image) and y (the vertices)
-            if (indices_lr[i] < 450):   # Flip Left - Right
+            if (indices_lr[i] < 450):   # Flip Left - Right with probability 450/1000
                 image = np.fliplr(image)
                 for m in range(len(label)):
                     if m % 2 == 0:
                         label[m] = 1 - label[m]
                 is_modified = True
             
-            if (indices_ud[i] < 450):   # Flip Up - Down
+            if (indices_ud[i] < 450):   # Flip Up - Down with probability 450/1000
                 image = np.flipud(image)
                 nb_label = len(label)
                 for m in range(nb_label):
@@ -461,7 +437,7 @@ class PixtoDataGenerator(Sequence):
                 is_modified = True
 
             # Rotate counter-clockwize
-            if indices_ro[i] < 360:
+            if indices_ro[i] < 360:     # Rotate with probability 360/380
                 angle = indices_ro[i]
 
                 margin_before = self.get_margin(image)
@@ -493,7 +469,7 @@ class PixtoDataGenerator(Sequence):
             if is_modified:
                 # re-order the vertices in the labels
                 vertices = label.reshape((self.n_vertices, 2))
-                first_vertice_index = select_first_vertice_index2(vertices, vertice_count=self.n_vertices, x_pos=self.x_pos, y_pos=self.y_pos)
+                first_vertice_index = select_first_vertice_index(vertices, vertice_count=self.n_vertices, x_pos=self.x_pos, y_pos=self.y_pos)
                 vertices_sorted = sort_vertices_clockwize(vertices, first_vertice_index=first_vertice_index,
                                                           vertice_count=self.n_vertices)
                 label = vertices_sorted.reshape((self.n_vertices * 2,))
