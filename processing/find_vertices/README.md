@@ -24,7 +24,7 @@ Note: The accuracy of the predictions can be improved by training with more epoc
 
 ## Notebooks
 - Notebooks for *Extract, transform, load* (ETL) processing 
-- Notebooks to estimate the vertices location.
+- Notebooks to estimate (regression) the vertices location.
 
 ## Images
 Images are (70px x 70 px x 1 gray channel). In the ETL phase, I separated the data in:
