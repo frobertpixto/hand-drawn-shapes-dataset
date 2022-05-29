@@ -23,17 +23,17 @@ Note: The accuracy of the predictions can be improved by training with more epoc
 ---
 
 ## Notebooks
-- a [Notebook](notebooks/a_etl_ellipse.ipynb) to read the images and vertices. Then prepare data (ETL).
-- a [Notebook](notebooks/b_regression_ellipse.ipynb) to find vertices for Ellipses. 
+- Notebooks for *Extract, transform, load* (ETL) processing 
+- Notebooks to estimate the vertices location.
 
 ## Images
 Images are (70px x 70 px x 1 gray channel). In the ETL phase, I separated the data in:
 
-| Set | Ellipse |
-| :--------------|---------------: |
-| Training set |  4828  |
-| Validation set | 1446  |
-| Test set | 180  |
+| Set | Ellipse | rectangle | Triangle |
+| :--------------|---------------: |---------------: |---------------: |
+| Training set |  4828  | 5386  | 5045  |
+| Validation set | 1446  | 1391  | 1370  |
+| Test set | 180  | 179  | 180  |
 
 ---
 ## Hyper-parameters
