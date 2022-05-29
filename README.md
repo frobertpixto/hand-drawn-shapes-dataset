@@ -6,7 +6,7 @@ Dataset of Hand-drawn Images of shapes **with vertices**.
 
 I have created the HDS Dataset for my app **[Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586)**.
 
-See DataSheet (as described in https://arxiv.org/pdf/1803.09010.pdf) for the HDS Dataset [here](Datasheet_for_Datasets.HDS.pdf).  
+See the complete DataSheet (as described in https://arxiv.org/pdf/1803.09010.pdf) for the HDS Dataset [here](Datasheet_for_Datasets.HDS.pdf).  
 
 <details><summary>Table of Contents</summary><p>
 
