@@ -1,8 +1,8 @@
 # Classification
 
-Classification of Hand Drawn Images of shapes is done to determine the type of shape. Images exist in 4 shapes:
-- Ellipse
+Classification of Hand Drawn Images of shapes is done to determine the type of shape. One shape per image. Drawings exist for 4 shapes:
 - Rectangle
+- Ellipse
 - Triangle
 - Other
 

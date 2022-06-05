@@ -33,17 +33,17 @@ See the complete DataSheet (as described in https://arxiv.org/pdf/1803.09010.pdf
   - **find_vertices**: Regression to find the vertices.
 
 ## The Images 
-Images exist in 4 shapes:
-- Ellipse
+One shape per image. Drawings exist for 4 shapes:
 - Rectangle
+- Ellipse
 - Triangle
 - Other
 
 The Dataset contains images (70px x 70px x 1 gray channel) distributed as:
 
-| Total | Other | Ellipse |  Rectangle | Triangle |
+| Total | Other | Rectangle | Ellipse |  Triangle |
 | :---------------:|---------------:|---------------:|---------------:|---------------: |
-| **27292** images  |  7287  | 6454 |  6956  | 6595 |
+| **27292** images  |  7287  | 6956 | 6454 | 6595 |
 
 The shapes have been size-normalized and centered in a fixed-size image.
 ## Processing

@@ -29,11 +29,11 @@ Note: The accuracy of the predictions can be improved by training with more epoc
 ## Images
 Images are (70px x 70 px x 1 gray channel). In the ETL phase, I separated the data in:
 
-| Set | Ellipse | rectangle | Triangle |
+| Set | Rectangle | Ellipse |  Triangle |
 | :--------------|---------------: |---------------: |---------------: |
-| Training set |  4828  | 5386  | 5045  |
-| Validation set | 1446  | 1391  | 1370  |
-| Test set | 180  | 179  | 180  |
+| Training set |  5386  | 4828  |  5045  |
+| Validation set | 1391  | 1446  |  1370  |
+| Test set | 179  |180  |  180  |
 
 ---
 ## Hyper-parameters
