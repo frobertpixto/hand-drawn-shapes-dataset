@@ -9,8 +9,8 @@ Classification of Hand Drawn Images of shapes is done to determine the type of s
 ---
 
 ## Notebooks
-- [a_etl](notebooks/a_etl.ipynb) notebook to read the images and prepare data (ETL).
-- [b_classify_shapes](notebooks/b_classify_shapes.ipynb) notebook to do Shape classification. 
+- [hds_a_etl_shapes](notebooks/hds_a_etl_shapes.ipynb) notebook to read the images and prepare data (ETL).
+- [hds_b_classify_shapes](notebooks/hds_b_classify_shapes.ipynb) notebook to do Shape classification. 
 
 ## Images
 Images are (70px x 70 px x 1 gray channel). In the ETL phase, I separated the data in:
