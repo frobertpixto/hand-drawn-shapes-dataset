@@ -114,7 +114,6 @@ The first ML models had no **Other** shape. I was initially happy with the excel
 ### Later if requested
 - Explain pipeline
 - Add requirements.txt for Notebooks
-- Show model to calculate Vertices for Rectangles and Triangles
 ---
 
 ## Communication
