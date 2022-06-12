@@ -10,6 +10,26 @@ The vertices are the oranges points superimposed on the ellipses in the examples
 Vertices are the extremities that define the actual size and angle of a shape.  
 For each shape, the vertices of the shape are expressed as x,y coordinates.  
 
+## Example of a .csv file content for vertices of a rectangle
+```
+0.14,0.28
+0.87,0.29
+0.86,0.67
+0.14,0.67
+```
+
+### Labelling of vertices
+Labelling was done by me using a tool I created in [Mix on Pix](https://apps.apple.com/us/app/mix-on-pix-text-on-photos/id633281586).
+For each image, the tool also generated a csv file with 1 line per vertex.
+Each Vertex has:
+- a x coordinate between 0 and 1
+- a y coordinate between 0 and 1
+
+Where:
+- (0,0) is the top left corner of the image
+- (1,1) is the bottom right corner of the image
+
+Note that the vertices are in no particular order. I sort them clockwise in the Extract-Transform-Load (ETL) processing
 
 ## Finding the vertices
 - The labeled vertices are the oranges points superimposed on the ellipses in the examples below. 
