@@ -112,6 +112,7 @@ The first ML models had no **Other** shape. I was initially happy with the excel
 - Show video of classification and finding vertices in actions.    
 
 ### Later if requested
+- Explain labelling rules for Vertices like Biggest shape that fits completely.
 - Explain pipeline
 - Add requirements.txt for Notebooks
 ---
