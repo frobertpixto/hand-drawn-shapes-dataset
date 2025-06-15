@@ -32,30 +32,6 @@ def replace_last(source_string, replace_what, replace_with):
     head, _sep, tail = source_string.rpartition(replace_what)
     return head + replace_with + tail
 
-def find_lefmost_index_in_subrect(vertices, x_from, y_from, x_to_excluded, y_to_excluded, vertice_count):
-    count = 0
-    min_x = 1
-    leftmost_index = 0
-    very_close_range = 0.03
-
-    for index, vertice in enumerate(vertices):
-        if vertice[0] >= x_from and vertice[0] < x_to_excluded and \
-        vertice[1] >= y_from and vertice[1] < y_to_excluded and \
-        index < vertice_count:
-            count += 1
-            if vertice[0] < min_x:
-                min_x = vertice[0]
-                leftmost_index = index
-
-    # If another vertices is very close to the leftmost one, pick the lowest one in the image (higher y)
-    for index, vertice in enumerate(vertices):
-        if index != leftmost_index and abs(vertice[0] - min_x) <= very_close_range and vertice[1] > y_of_min_x:
-            min_x = vertice[0]
-            y_of_min_x = vertice[1]
-            leftmost_index = index
-
-    return (count, leftmost_index)
-
 def find_nearest_index(vertices, x_from, y_from, vertice_count):
     """
     Find the index of the vertex that is the closest to specified 
